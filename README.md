@@ -5,11 +5,11 @@ This mod is tested on Mi Smart Compact Projector model MJJGTYDS02FM.
 It might apply to other projector that uses the same Fengmi projector SDK.
 DO AT YOUR OWN RISK! I'M NOT RESPONSIBLE FOR ANY DAMAGES!
 
-# The problem:
+# The Problem:
 Sometimes in a hot day, the projector will overheats and display overheating messages. This will dim the screen and make the fan go full speed. Why don't we make it go full speed everytime?
 
-# The solution:
-I found that the Fengmi projectors uses a .json file to set the fan curve, on the Fengmi's test tool, the fan curve can be altered with our own .json loaded from a USB stick. Controllable fan speed are in integer between 0 and 10. The default fan speed is 2 which is slow and quiet, they prioritize noise over temperature.
+# The Solution:
+I found that the Fengmi projectors uses a .json file to set the fan curve. On the Fengmi's hidden test tool, the fan curve can be altered with our own .json loaded from a USB stick. Controllable fan speed are in integer between 0 and 10. The default fan speed is 2 which is slow and quiet, they prioritize noise over temperature.
 
 # The Good:
 - Faster fan speed = lower temps
@@ -29,7 +29,7 @@ There are some tools that you need to download first:
 
 
 Step 0:
-Prepare your FAT32 formatted USB flash drive, copy the test.json file to the root of the drive. Plug into the USB port on the projector.
+Prepare your FAT32 formatted USB flash drive, download and copy the test.json file to the root of the drive. Plug into the USB port on the projector.
 
 Step 1:
 Open Activity Launcher, and scroll to the bottom, you'll see an app with Chinese character, tap on it, make sure it expands into com.fengmi.autofocustest.MainActivity. Tap on the activity.
@@ -52,7 +52,7 @@ Step 4:
 Confirm the newly applied fan speed by tapping the first button on the list:
 ![Screenshot_20230414-161054](https://user-images.githubusercontent.com/12219401/232010472-ed1c6361-f0eb-49f8-8ef7-93018a64d0e7.png)
 
-The Fan speed should be 8 by default (you can change this on the test.json)
+The Fan speed should be between 8 to 10 (you can change this on the test.json)
 ![Screenshot_20230414-161117](https://user-images.githubusercontent.com/12219401/232010487-abbb80ba-c4d3-4ad6-928c-119d546b1f8a.png)
 
 You're done!
