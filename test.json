@@ -1,0 +1,139 @@
+{
+	"version": 1,
+	"mode": 0,
+	"thermalconfig": {
+		"alias": [{
+			"name": "fan1",
+			"type": 1,
+			"path": "/sys/class/projector/led-projector/projector-0-fan/fan_speed",
+			"alias": "Fan",
+			"event": "fan1_speed"
+		}, {
+			"name": "temp1",
+			"type": 2,
+			"path": "/sys/class/projector/led-projector/projector-0-temp/temp",
+			"alias": "RED LED",
+			"event": "led_r_temp"
+		}, {
+			"name": "temp2",
+			"type": 2,
+			"path": "/sys/class/projector/led-projector/projector-1-temp/temp",
+			"alias": "GREEN LED",
+			"event": "led_g_temp"
+		}, {
+			"name": "temp3",
+			"type": 2,
+			"path": "/sys/class/projector/led-projector/projector-2-temp/temp",
+			"alias": "SoC",
+			"event": "soc_temp"
+		}, {
+			"name": "lcd",
+			"type": 1,
+			"path": "/sys/class/projector/led-projector/brightness_max",
+			"alias": "LED_POWER"
+		}],
+		"enable_hight2movie": 0,
+		"movie2eco_second": 8,
+		"enable_lowpower": 0,
+		"lowpower_second": 8,
+		"sampling": 6,
+		"condition": [{
+			"trigger": [{
+					"name": "temp1",
+					"range": [72, -15]
+				},
+				{
+					"name": "temp2",
+					"range": [90, -15]
+				},
+				{
+					"name": "temp3",
+					"range": [75, -15]
+				}
+			],
+			"actions": [{
+				"name": "shutdown",
+				"value": 10
+			}]
+		}],
+		"config": [{
+				"trigger": [{
+						"name": "temp1",
+						"range": [0, -15]
+					},
+					{
+						"name": "temp2",
+						"range": [0, -15]
+					}
+				],
+				"actions": [{
+					"name": "fan1",
+					"value": 8
+				}]
+			},
+			{
+				"trigger": [{
+					"name": "temp1",
+					"range": [61, 56]
+				}, {
+					"name": "temp2",
+					"range": [65, 76]
+				}],
+				"actions": [{
+					"name": "fan1",
+					"value": 9
+				}]
+			},
+			{
+				"trigger": [{
+						"name": "temp1",
+						"range": [64, 51]
+					},
+					{
+						"name": "temp2",
+						"range": [68, 58]
+					}
+				],
+				"actions": [{
+					"name": "fan1",
+					"value": 10
+				}]
+			}
+		],
+		"extra_config": [{
+				"trigger": [{
+						"name": "temp1",
+						"range": [63, 51]
+					},
+					{
+						"name": "temp2",
+						"range": [85, 58]
+					}
+				],
+				"actions": [{
+					"name": "lcd",
+					"value": 100
+				}]
+			},
+			{
+				"trigger": [{
+						"name": "temp1",
+						"range": [0, -15]
+					},
+					{
+						"name": "temp2",
+						"range": [0, -15]
+					},
+					{
+						"name": "temp3",
+						"range": [0, -15]
+					}
+				],
+				"actions": [{
+					"name": "lcd",
+					"value": 255
+				}]
+			}
+		]
+	}
+}
